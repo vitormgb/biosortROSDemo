@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="stage_ros" name="stage" type="stageros" args="$(find biosort)/world/walls.world" required="true"/>
+	<node pkg="tf" type="static_transform_publisher" name="transformation" args="0 0 0 0 1.57 0 /map background_frame 100"/>
+	<node pkg="biosort" name="navigation" type="start_navigation.py" args="" respawn="true"/> -->
+	<node pkg="biosort" name="map" type="start_map.py" args="" respawn="true"/>
+	<node pkg="rviz" type="rviz" name="my_rviz" args="-d $(find biosort)/rviz.rviz"/>
+</launch>
